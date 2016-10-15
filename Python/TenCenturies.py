@@ -16,7 +16,7 @@ class TenCenturies():
 
 	logoutURL = "https://api.10centuries.org/auth/logout"
 
-	appID = "YOUR APP ID"
+	appID = "YOUR APP ID HERE"
 
 	libName = "TenCenturies"
 
@@ -92,9 +92,9 @@ class TenCenturies():
 
 	'''
 		Creates a stream of posts.
-			streamName = (string) the name of the stream (Global, Home, or Mentions)
-			nrPosts = (integer) the number of posts to get per call to the API
-			maxNrPosts = (integer) the maximum number of posts to get (multiple of nrPosts)
+			streamName (string)		= the name of the stream (Global, Home, or Mentions)
+			nrPosts (integer)		= the number of posts to get per call to the API
+			maxNrPosts (integer)	= the maximum number of posts to get (multiple of nrPosts)
 	'''
 	def makeStream (self, streamName, nrPosts=100, maxNrPosts=100):
 		print ("\n{0} (A) [makeStream]: Collecting {0} posts\n".format(maxNrPosts))
@@ -114,20 +114,21 @@ class TenCenturies():
 				fullStream = fullStream + stream
 
 			length = len(fullStream)
+			print ("{0} (C) [makeStream]: There are {1} posts in fullStream".format(self.libName, length))
 			lastPost = fullStream[length - 1]
 			createdUNIX = lastPost["created_unix"]
 
 		length = len(fullStream)
-		print ("{0} (C) [makeStream]: Returning {1} posts".format(self.libName, length))
+		print ("{0} (D) [makeStream]: Returning {1} posts".format(self.libName, length))
 
 		return fullStream
 
 	'''
 		Print some JSON encoded text in a more Human readable format
 	'''
-	def prettyJSON (self, jsonText):
+	def prettyJSON (self, jsonText, indent=2):
 		#	Print the current post in an easy to read format
-		pp = pprint.prettyJSONer(indent=2)
+		pp = pprint.prettyJSONer(indent=indent)
 		pp.pprint(jsonText)
 
 	'''
@@ -414,6 +415,9 @@ class TenCenturies():
 
 	'''
 		Display a threaded stream of posts using table format
+
+		NOTE: This procedure is NOT in its final form. Do NOT
+			use it!
 	'''
 	def displayThreadedStream (self, stream):
 		thread = []
