@@ -5,11 +5,7 @@ Code for the 10Centuries Social Platform
 PLEASE NOTE: This code is in a very unstable state, and it MAY OR MAY NOT WORK
 	ANY GIVEN TIME!! Consider it to be in a complete ALPHA state.
 
-Scripts:
+Directories:
 
-	TenCenturies.py		The library for 10C routines.
-	Python10C.py		General testing script - may or may not work.
-	ShowFullTable.py	Generates the Post List table
-	ShowThreaded.py		Generates the Thread View list
-	ThreadTest.py		Testing script for the makeStream() and displayThreadedStream() procedures
+	Python			All of my Python code for 10Centuries
 	
